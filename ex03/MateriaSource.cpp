@@ -1,4 +1,5 @@
 #include "MateriaSource.hpp"
+#include <iostream>
 
 MateriaSource::MateriaSource()
 {
@@ -43,6 +44,7 @@ void MateriaSource::learnMateria(AMateria *m)
 			return ;
 		}
 	}
+	std::cout << "MateriaSource: Inventory is full" << std::endl;
 }
 
 AMateria *MateriaSource::createMateria(std::string const & type)
@@ -52,6 +54,7 @@ AMateria *MateriaSource::createMateria(std::string const & type)
 		if (_inventory[i] && _inventory[i]->getType() == type)
 			return (_inventory[i]->clone());
 	}
+	std::cout << "MateriaSource: Materia not found" << std::endl;
 	return (NULL);
 }
 

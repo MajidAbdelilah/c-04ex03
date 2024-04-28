@@ -1,6 +1,6 @@
 SRCS= AMateria.cpp Character.cpp Cure.cpp Ice.cpp main.cpp MateriaSource.cpp
 OBJS= $(SRCS:.cpp=.o)
-CFLAGS= -Wall -Werror -Wextra -std=c++98 -fsanitize=address
+CFLAGS= -Wall -Werror -Wextra -std=c++98
 CPP= c++
 NAME= game
 

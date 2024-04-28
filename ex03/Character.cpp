@@ -56,15 +56,20 @@ void Character::equip(AMateria* m)
 	if (i < 4)
 		_inventory[i] = m;
 	else
-		std::cout << "Inventory is full" << std::endl;
+		std::cout << "Character: Inventory is full" << std::endl;
 }
 
 void Character::unequip(int idx)
 {
-	if (idx >= 0 && idx < 4 && _inventory[idx])
-		_inventory[idx] = NULL;
+	if (idx >= 0 && idx < 4)
+	{
+		if(_inventory[idx])
+			_inventory[idx] = NULL;
+		else
+			std::cout << "Character: Inventory is empty" << std::endl;
+	}
 	else
-		std::cout << "Invalid index" << std::endl;
+		std::cout << "Character: Invalid index" << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target)
@@ -74,9 +79,9 @@ void Character::use(int idx, ICharacter& target)
 		if(_inventory[idx])
 			_inventory[idx]->use(target);
 		else
-			std::cout << "Inventory is empty" << std::endl;
+			std::cout << "Character: Inventory is empty" << std::endl;
 	}
 	else
-		std::cout << "Invalid index" << std::endl;
+		std::cout << "Character: Invalid index" << std::endl;
 }
 
